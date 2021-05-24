@@ -1,0 +1,18 @@
+programa
+{
+	
+	funcao inicio()
+	{
+		inteiro contador=0
+		cadeia agenda[][]={{"Maria","Sorocaba","(15)99792-1988"},{"Joao","Salvador","(15)99792-1988"},{"Cleide","Votorantim","(15)99792-1988"},{"Jose","Aluminio","(15)99792-1988"}}
+
+		faca{
+
+			escreva("Nome: " + agenda[contador][0] + " Cidade: " + agenda[contador][1] + " Telefone: " + agenda[contador][2] + "\n")
+			contador++
+		}enquanto(contador<=3)
+
+		escreva("Fim do programa...")
+	
+	}
+}
