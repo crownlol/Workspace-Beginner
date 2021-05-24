@@ -1,0 +1,72 @@
+from datetime import datetime
+
+nome_completo = "Felipe Dias Alvarenga"
+primeiro_nome = str(nome_completo.split(" ")[0])
+tamanho_nome_completo = len(nome_completo)
+tamanho_primeiro_nome = len(primeiro_nome)
+
+print("Bem-vindo(a) à CrownlolStore!" "\n\nMe chamo Felipe Dias Alvarenga, estou aqui para te ajudar!")
+print("\nPara realizar sua análise de crédito, precisarei de alguns dados.")
+
+def obter_limite():
+    nome_cargo = str(input("\nMe Informe seu cargo atual: "))
+    valor_salario = float(input("\nMe Informe seu salário atual R$"))
+    data_nascimento = str(input("\nMe Informe sua data de nascimento dd/mm/aaaa: "))
+    ano_nascimento = int(data_nascimento.split ("/")[2])
+    print("\nSeu cargo atual é {}, com um salário de R${:.2f} e seu ano de nascimento é {}.".format(nome_cargo,valor_salario,ano_nascimento))
+   
+    data_hoje = datetime.now()
+    ano_atual = int(data_hoje.year)
+    idade_cliente = ano_atual - ano_nascimento
+    print("\nHoje o senhor(a) tem {} anos.".format(idade_cliente))
+    
+    limite = float(valor_salario * (idade_cliente / 1000) + 100)
+    print("\nSeu Limite disponível para gastar em nossa loja é de R${:.2f} reais.".format(limite))
+    print("=======================================================================")  
+    return idade_cliente, limite
+
+def verificar_produto(idade_cliente,limite):
+    nome_produto = str(input("\nInforme o nome do produto desejado: "))
+    preco_produto = float(input("\nInforme o valor do produto desejado R$"))
+    
+    porcentagem_preco_produto = float((preco_produto*100)/limite)
+    bloqueado=0
+    if porcentagem_preco_produto <= 60:    
+        print("\nLiberado.")
+    elif porcentagem_preco_produto <= 90:
+        print("\nLiberado para parcelar em até 2 vezes.")
+    elif porcentagem_preco_produto <=  100:
+        print("\nLiberado para parcelar em até 3 vezes.")
+    else:
+        print("\nBloqueado.")
+        bloqueado=1
+         
+    if (not bloqueado):
+        if (tamanho_nome_completo<preco_produto<idade_cliente):
+            desconto = tamanho_primeiro_nome
+            print("\nVocê recebeu um desconto no valor de R${:.2f} reais.".format(desconto))
+            preco_final = preco_produto - desconto
+            print("\nO valor do produto é de R${:.2f} reais, com o desconto disponível, o produto passará a custar R${:.2f} reais." .format(preco_produto, preco_final)) 
+            print("=======================================================================") 
+            return preco_final 
+        else: 
+            print("\nNão terá desconto.")
+            print("=======================================================================")  
+        return preco_produto
+
+    return 0 
+idade_cliente, limite = obter_limite()
+
+total_produtos = int(input("\nQuantos produtos o senhor(a) gostaria de cadastrar? "))
+print("\nFaremos o cadastro de {} produtos".format(total_produtos))
+n = total_produtos
+compra_total = 0
+for i in range(n):
+    valor = verificar_produto(idade_cliente, limite)
+    limite -= valor
+    compra_total += valor
+print("\nO valor total da sua compra é de R${:.2f} reais.".format(compra_total))
+
+print("\nSeu limite restante para compras futuras em nossa loja é de R${:.2f} reais.".format(limite))
+
+print("\nMuito obrigado, e volte sempre...")
