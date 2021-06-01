@@ -1,0 +1,37 @@
+import java.util.Scanner;
+
+public class Circulo {
+// Atributo de classe
+    float raio;
+    final static float PI = 3.1415f;
+
+    public Circulo (float raio){
+        this.raio = raio;
+    }
+
+//Métodos da classe
+    float calcularPerimetro() {
+        return 2 * PI * this.raio;
+    }
+    void imprimirDados() {
+        System.out.println("Círculo: ");
+        System.out.println("- raio: " +  raio + " cm");
+        System.out.println("- perímetro: " + calcularPerimetro() + " cm");
+    }
+
+//Método principal
+public static void main(String[] args) {
+    Scanner leitor = new Scanner(System.in);        // Leitor de Teclado
+    float raio;
+    System.out.println("Mundo dos Círculos");
+    System.out.print ("Entre com o valor do raio: ");
+    raio = leitor.nextFloat();                      // Recebe valor float em raio
+    Circulo circ1 = new Circulo (raio);            // Instancia Circulo em circ1
+    circ1.imprimirDados();                         // Invoca o método
+    System.out.println("----------------------");
+System.out.print ("Entre com o valor do Raio: ");
+    raio = leitor.nextFloat();
+    Circulo circ2 = new Circulo (raio);
+    circ2.imprimirDados();
+    }
+}
