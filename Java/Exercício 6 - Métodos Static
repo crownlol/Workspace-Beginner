@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class Calculadora2 {
+    //Método static são invocados diretamente da sua classe
+    static float somar (float a, float b) {
+        return a + b;
+    }
+    static float multiplicar (float a, float b){
+        return a * b;
+    }
+
+    public static void main(String[] args) {
+        Scanner leitor = new Scanner(System.in);        //Leitor de teclado
+        float x, y, z;                                  //Variáveis locais
+
+        System.out.println("Entre com o valor de x: ");
+        x = leitor.nextFloat();
+
+        System.out.println("Entre com o valor de y: ");
+        y = leitor.nextFloat();
+
+        z = Calculadora2.somar (x, y);                  //Método static: invocado diretamente
+        System.out.println("x + y = " + z);         //da classe Calculadora2
+
+        z = Calculadora2.multiplicar (x, y);            //Método static: invocado diretamente
+        System.out.println("x * y = " + z);         //da classe Calculadora2
+    }
+}
