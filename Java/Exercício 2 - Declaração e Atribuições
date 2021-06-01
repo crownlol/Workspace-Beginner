@@ -1,4 +1,4 @@
-public class decla_atribu {
+public class Decla_atribu {
     public static void main(String[] args) {
 
         int x, y;               // Declaração de variáveis inteiras: x e y.
