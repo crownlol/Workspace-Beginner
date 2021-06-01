@@ -1,0 +1,31 @@
+public class Cambio {
+    static float cotacaoDolar = 4.0f;       //Atributo static
+
+    float converterDolar (float valorReal) {
+        return valorReal / cotacaoDolar;
+    }
+    float converterReal (float valorDolares){
+        return valorDolares * cotacaoDolar;
+    }
+
+    public static void main(String[] args) {
+        float valorDolar;
+        float valorReal;
+
+        Cambio c1 = new Cambio();           // Cria o objeto c1 da classe Cambio
+
+    // Apresenta cotações
+        System.out.printf("\n-- U$ 1,00 vale R$ %.2f\n",Cambio.cotacaoDolar);
+        System.out.printf("U$ 10,00 = R$ %.2f\n", c1.converterReal(10f));
+        System.out.printf("R$ 10,00 = U$ %.2f\n", c1.converterDolar(10f));
+
+        Cambio c2 = new Cambio();               // Cria o objeto c2 da classe Cambio
+
+        Cambio.cotacaoDolar = 5.0f;             //Alteração do atributo na classe
+
+    // Apresenta cotações
+        System.out.printf("\n-- U$ 1,00 vale R$ %.2f\n", Cambio.cotacaoDolar);
+        System.out.printf("U$ 10,00 = R$ %.2f\n", c2.converterReal(10f));
+        System.out.printf("R$ 10,00 = U$ %.2f\n", c2.converterDolar(10f));
+    }
+}
