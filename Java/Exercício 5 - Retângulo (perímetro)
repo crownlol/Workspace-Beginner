@@ -1,0 +1,39 @@
+public class Retangulo {
+    // Atributos da classe = ESTADO da classe
+    float altura;
+    float largura;
+
+    // Métodos da classe = COMPORTAMENTO da classe
+    float calcularPerimetro(){
+        float pm;      //Variável local
+        pm = 2 * altura + 2 * largura;
+        return pm;
+    }
+    void imprimirDados(){
+        float p;       //Variável local
+        p = calcularPerimetro();    //Calcula o perímetro do retângulo
+        System.out.println("Retângulo: ");
+        System.out.println("- altura: " + altura);
+        System.out.println("- largura: " + largura);
+        System.out.println("- perimetro: " + p);
+    }
+
+    //Método principal - início de execução do programa
+    public static void main(String[] args) {
+        System.out.println("Mundo dos Retângulos");
+
+        //Criação do primeiro Retângulo, retg1
+        Retangulo retg1;            //Referência de objeto da classe Retangulo
+        retg1 = new Retangulo();    //Instanciação da classe Retangulo em objeto
+        retg1.altura = 10;          //Atribuição de valor para atributo(altura) do objeto
+        retg1.largura = 20;         //Atribuição de valor para atributo(largura) do objeto
+        retg1.imprimirDados();      //Invocação de método do objeto
+
+        //Criação do segundo Retângulo, retg2
+        Retangulo retg2;
+        retg2 = new Retangulo();
+        retg2.altura = 5;
+        retg2.largura = 15;
+        retg2.imprimirDados();
+    }
+}
