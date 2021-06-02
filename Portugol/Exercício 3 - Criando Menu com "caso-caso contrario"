@@ -19,7 +19,8 @@ programa
 
 		caso 3:
 		escreva("OK! Abrir HBO GO")
-
+		pare
+		
 		caso 4:
 		escreva("SAINDO DO MENU....")
 		pare
